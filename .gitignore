@@ -1,0 +1,53 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Node
+node_modules/
+.npm
+.next/
+out/
+
+# Java / Maven
+target/
+*.jar
+*.war
+*.nar
+*.ear
+*.class
+*.log
+
+# Gradle
+.gradle/
+build/
+
+# Environment
+.env
+.env.local
+.env.prod
+.env.*.local
+.env.*
+
+# Firebase
+firebase-service-account.json
+*-service-account.json
+*.firebase
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
+
+# Kubernetes secrets (never commit these)
+deployment/k8s/secrets.yaml
+deployment/k8s-gke/secrets.yaml
+
+# Create admin
+create-admin.js
