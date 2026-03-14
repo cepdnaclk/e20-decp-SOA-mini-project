@@ -1,0 +1,44 @@
+server:
+  port: ${SERVER_PORT:8081}
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    url: ${USER_DB_URL:jdbc:postgresql://localhost:5432/user_db}
+    username: ${USER_DB_USERNAME:decp}
+    password: ${USER_DB_PASSWORD:decp_password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: ${SHOW_SQL:false}
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: false
+
+firebase:
+  service-account-path: ${FIREBASE_SERVICE_ACCOUNT_PATH:classpath:firebase-service-account.json}
+
+services:
+  post-service:
+    url: ${POST_SERVICE_URL:http://localhost:8082}
+
+logging:
+  level:
+    "[com.decp.user.security]": DEBUG
+    "[org.springframework.security]": DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
